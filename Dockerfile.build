@@ -66,9 +66,7 @@ RUN \
     python3 -m pip install --disable-pip-version-check --upgrade pip wheel && \
     python3 -m pip install --disable-pip-version-check -r requirements-pip.txt && \
     pip3 install --disable-pip-version-check . --group dev --group devlinux && \
-    if [ "${TARGETARCH}${TARGETVARIANT}" != "armv7" ]; then \
-        BOOTLOADER_CC=musl-gcc pip3 install --disable-pip-version-check --no-build-isolation staticx==0.14.2; \
-    fi
+    BOOTLOADER_CC=musl-gcc pip3 install --disable-pip-version-check --no-build-isolation staticx==0.14.2
 RUN \
     . .venv/bin/activate && \
     echo "Building binaries..." && \
